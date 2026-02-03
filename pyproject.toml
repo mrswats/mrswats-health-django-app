@@ -12,6 +12,8 @@ dependencies = [
 [project.optional-dependencies]
 test = [
     "covdefaults",
+    "django-stubs[compatible-mypy]",
+    "mypy",
     "pytest",
     "pytest-cov",
     "pytest-django",
@@ -33,7 +35,13 @@ recursive = true
 [tool.mypy]
 files = "."
 ignore_missing_imports = true
-exclude = []
+exclude = [
+    "tests/",
+]
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "testing.settings"
 
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "testing.settings"
