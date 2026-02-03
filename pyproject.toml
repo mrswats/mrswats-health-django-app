@@ -5,13 +5,16 @@ description = ""
 readme = "README.md"
 requires-python = ">=3.14.1"
 license = { file = "LICENSE" }
-dependencies = []
+dependencies = [
+    "django",
+]
 
 [project.optional-dependencies]
 test = [
     "covdefaults",
     "pytest",
     "pytest-cov",
+    "pytest-django",
     "pytest-randomly",
     "pytest-xdist",
     "time-machine",
@@ -32,9 +35,16 @@ files = "."
 ignore_missing_imports = true
 exclude = []
 
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "testing.settings"
+
 [tool.coverage.run]
 plugins = ["covdefaults"]
-omit = []
+omit = [
+    "manage.py",
+    "wsgi.py",
+    "asgi.py",
+]
 
 [tool.coverage.html]
 directory = "artifacts/htmlcov/"
