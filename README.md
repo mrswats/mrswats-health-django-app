@@ -1,6 +1,6 @@
-# Awesome Python Project
+# MrSwats' health Django App
 
-This is a template for python projects.
+This is my preferred way of writing a health check endpoint in django.
 
 ## Virtual Environment
 
